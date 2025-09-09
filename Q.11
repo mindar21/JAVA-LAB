@@ -1,0 +1,63 @@
+// 11)  Write a program where a superclass Shape has method area(). Override it in Circle, Triangle, and Rectangle classes using runtime polymorphism.
+
+class Shape {
+    double area() {
+        return 0; 
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Triangle extends Shape {
+    double base, height;
+
+    Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    double area() {
+        return 0.5 * base * height;
+    }
+}
+
+class Rectangle extends Shape {
+    double length, breadth;
+
+    Rectangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    @Override
+    double area() {
+        return length * breadth;
+    }
+}
+
+public class ShapeTest {
+    public static void main(String[] args) {
+        Shape s;
+
+        s = new Circle(5);
+        System.out.println("Area of Circle: " + s.area());
+
+        s = new Triangle(6, 4);
+        System.out.println("Area of Triangle: " + s.area());
+
+        s = new Rectangle(5, 3);
+        System.out.println("Area of Rectangle: " + s.area());
+    }
+}
